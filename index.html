@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Découvrez les meilleurs produits de câpres et des recettes uniques avec Taaouniyat Alkobar Khat Azakan." name="description"/>
+<meta content="câpres, produits, recettes, méditerranéenne, saumon, poulet" name="keywords"/>
+<title>Taaouniyat Alkobar Khat Azakan</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    header {
+        background: url('capparis-spinosa-capre.jpg') no-repeat center center/cover;
+        color: white;
+        text-align: center;
+        padding: 6em 1em;
+        position: relative;
+    }
+    header::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+    header h1, header p {
+        position: relative;
+        z-index: 2;
+        animation: fadeIn 2s ease-in-out;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: #333;
+        padding: 1em 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        margin: 0 0.5em;
+        font-weight: bold;
+        transition: color 0.3s, transform 0.3s;
+    }
+    nav a:hover {
+        color: #4CAF50;
+        transform: scale(1.1);
+    }
+    section {
+        padding: 3em 1em;
+    }
+    .catalog {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5em;
+    }
+    .catalog-item {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .catalog-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+    .catalog-item:hover img {
+        transform: scale(1.1);
+    }
+    .catalog-item .info {
+        position: absolute;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        width: 100%;
+        padding: 0.5em;
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+    }
+    .catalog-item:hover .info {
+        transform: translateY(0);
+    }
+    .recipes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5em;
+    }
+    .recipe {
+        text-align: center;
+    }
+    .recipe img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .recipe h3 {
+        margin-top: 1em;
+        color: #4CAF50;
+    }
+    .commande-section {
+        text-align: center;
+        padding: 3em 1em;
+        background: linear-gradient(to right, #32CD32, #4CAF50);
+        color: white;
+    }
+    .commande-section button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 1em 2em;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    .commande-section button:hover {
+        background-color: #555;
+        transform: scale(1.1);
+    }
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 1.5em 0;
+    }
+</style>
+</head>
+<body>
+<header>
+<h1>Taaouniyat Alkobar Khat Azakan</h1>
+<p>Produits de câpres et des recettes uniques</p>
+</header>
+<nav>
+<a href="#accueil">Accueil</a>
+<a href="#catalog">Produits</a>
+<a href="#recettes">Recettes</a>
+<a href="#contact">Contact</a>
+</nav>
+<section id="catalog">
+<h2>Nos Produits</h2>
+<div class="catalog">
+<div class="catalog-item">
+<img alt="Câpres Marinées" src="imago_images_0419631057.webp"/>
+<div class="info">Des câpres marinées pour un goût authentique et exceptionnel.</div>
+</div>
+<div class="catalog-item">
+<img alt="Câpres Séchées" src="kapern3.webp"/>
+<div class="info">Câpres séchées, parfaites pour divers plats méditerranéens.</div>
+</div>
+<div class="catalog-item">
+<img alt="Câpres en Pot" src="capers-200g.webp"/>
+<div class="info">Câpres conservées pour une fraîcheur et une saveur durables.</div>
+</div>
+</div>
+</section>
+<section class="recipes" id="recettes">
+<h2>Recettes Délicieuses</h2>
+<div class="recipe">
+<img alt="Salade Méditerranéenne aux Câpres" src="salad.jpg"/>
+<h3>Salade Méditerranéenne aux Câpres</h3>
+<p>Mélangez des câpres, des tomates fraîches, des olives et un filet d'huile d'olive pour une explosion de saveurs.</p>
+</div>
+<div class="recipe">
+<img alt="Poulet Sauté aux Câpres" src="poulet.jpg"/>
+<h3>Poulet Sauté aux Câpres</h3>
+<p>Ajoutez des câpres pour relever le goût de vos plats de poulet.</p>
+</div>
+<div class="recipe">
+<img alt="Saumon Grillé aux Câpres" src="saumon.jpg"/>
+<h3>Saumon Grillé aux Câpres</h3>
+<p>Ajoutez des câpres sur un saumon fraîchement grillé pour une explosion de saveurs.</p>
+</div>
+</section>
+<section class="commande-section">
+<h2>Passer une Commande</h2>
+<p>Commandez facilement via WhatsApp et recevez vos produits directement chez vous !</p>
+<button onclick="window.location.href='https://wa.me/212668713678'">Commander via WhatsApp</button>
+</section>
+<footer>
+<p>© 2024 Taaouniyat Alkobar Khat Azakan. Tous droits réservés.</p>
+<div id="contact-section" style="color: white; text-align: center; margin-top: 20px;">
+<h3>Contactez-Nous</h3>
+<p>Email : mohammedraida@hotmail.com</p>
+<p>Téléphone : +212 668 713678</p>
+</div>
+</footer>
+</body>
+</html>
