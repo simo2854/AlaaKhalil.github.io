@@ -1,208 +1,324 @@
-
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Découvrez les meilleurs produits de câpres et des recettes uniques avec Taaouniyat Alkobar Khat Azakan." name="description"/>
-<meta content="câpres, produits, recettes, méditerranéenne, saumon, poulet" name="keywords"/>
-<title>Taaouniyat Alkobar Khat Azakan</title>
-<style>
+  <!-- Meta tags and title -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taaouniyat Alkobar Khat Azakan</title>
+  <meta name="description" content="Découvrez les meilleurs produits de câpres et des recettes uniques avec Taaouniyat Alkobar Khat Azakan.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS (Animate On Scroll Library) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
     }
-    header {
-        background: url('capparis-spinosa-capre.jpg') no-repeat center center/cover;
-        color: white;
-        text-align: center;
-        padding: 6em 1em;
-        position: relative;
+
+    /* Navbar */
+    .navbar-nav .nav-link {
+      font-weight: 500;
     }
-    header::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1;
+
+    .navbar-light .navbar-nav .nav-link:hover {
+      color: #007bff;
     }
-    header h1, header p {
-        position: relative;
-        z-index: 2;
-        animation: fadeIn 2s ease-in-out;
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      background: url('my_hero.jpg') no-repeat center center/cover;
+      color: white;
     }
-    nav {
-        display: flex;
-        justify-content: center;
-        background-color: #333;
-        padding: 1em 0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
     }
-    nav a {
-        color: white;
-        text-decoration: none;
-        padding: 0.5em 1em;
-        margin: 0 0.5em;
-        font-weight: bold;
-        transition: color 0.3s, transform 0.3s;
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
     }
-    nav a:hover {
-        color: #4CAF50;
-        transform: scale(1.1);
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
     }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Sections */
     section {
-        padding: 3em 1em;
+      padding: 60px 0;
     }
-    .catalog {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5em;
+
+    section h2 {
+      font-weight: 700;
+      margin-bottom: 2rem;
     }
-    .catalog-item {
-        position: relative;
-        width: 300px;
-        height: 200px;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* Products and Recipes */
+    .card img {
+      height: 250px;
+      object-fit: cover;
     }
-    .catalog-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s;
+
+    .card:hover {
+      transform: translateY(-5px);
+      transition: transform 0.3s;
     }
-    .catalog-item:hover img {
-        transform: scale(1.1);
+
+    /* Call to Action Section */
+    .cta-section {
+      background: linear-gradient(to right, #32CD32, #4CAF50);
+      color: white;
+      text-align: center;
+      padding: 80px 0;
     }
-    .catalog-item .info {
-        position: absolute;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.6);
-        color: white;
-        width: 100%;
-        padding: 0.5em;
-        text-align: center;
-        transform: translateY(100%);
-        transition: transform 0.3s;
+
+    .cta-section h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
-    .catalog-item:hover .info {
-        transform: translateY(0);
+
+    .cta-section p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
     }
-    .recipes {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5em;
+
+    .cta-section .btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
     }
-    .recipe {
-        text-align: center;
+
+    /* Newsletter */
+    .newsletter {
+      background: #f8f9fa;
+      padding: 60px 0;
     }
-    .recipe img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .newsletter h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
-    .recipe h3 {
-        margin-top: 1em;
-        color: #4CAF50;
+
+    .newsletter .form-control {
+      max-width: 400px;
+      margin: 0 auto;
     }
-    .commande-section {
-        text-align: center;
-        padding: 3em 1em;
-        background: linear-gradient(to right, #32CD32, #4CAF50);
-        color: white;
-    }
-    .commande-section button {
-        background-color: black;
-        color: white;
-        border: none;
-        padding: 1em 2em;
-        font-size: 1em;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
-    }
-    .commande-section button:hover {
-        background-color: #555;
-        transform: scale(1.1);
-    }
+
+    /* Footer */
     footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1.5em 0;
+      background: #343a40;
+      color: white;
+      padding: 40px 0;
     }
-</style>
+
+    footer a {
+      color: #adb5bd;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    .social-icons a {
+      color: #adb5bd;
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 767.98px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-<h1>Taaouniyat Alkobar Khat Azakan</h1>
-<p>Produits de câpres et des recettes uniques</p>
-</header>
-<nav>
-<a href="#accueil">Accueil</a>
-<a href="#catalog">Produits</a>
-<a href="#recettes">Recettes</a>
-<a href="#contact">Contact</a>
-</nav>
-<section id="catalog">
-<h2>Nos Produits</h2>
-<div class="catalog">
-<div class="catalog-item">
-<img alt="Câpres Marinées" src="imago_images_0419631057.webp"/>
-<div class="info">Des câpres marinées pour un goût authentique et exceptionnel.</div>
-</div>
-<div class="catalog-item">
-<img alt="Câpres Séchées" src="kapern3.webp"/>
-<div class="info">Câpres séchées, parfaites pour divers plats méditerranéens.</div>
-</div>
-<div class="catalog-item">
-<img alt="Câpres en Pot" src="capers-200g.webp"/>
-<div class="info">Câpres conservées pour une fraîcheur et une saveur durables.</div>
-</div>
-</div>
-</section>
-<section class="recipes" id="recettes">
-<h2>Recettes Délicieuses</h2>
-<div class="recipe">
-<img alt="Salade Méditerranéenne aux Câpres" src="salad.jpg"/>
-<h3>Salade Méditerranéenne aux Câpres</h3>
-<p>Mélangez des câpres, des tomates fraîches, des olives et un filet d'huile d'olive pour une explosion de saveurs.</p>
-</div>
-<div class="recipe">
-<img alt="Poulet Sauté aux Câpres" src="poulet.jpg"/>
-<h3>Poulet Sauté aux Câpres</h3>
-<p>Ajoutez des câpres pour relever le goût de vos plats de poulet.</p>
-</div>
-<div class="recipe">
-<img alt="Saumon Grillé aux Câpres" src="saumon.jpg"/>
-<h3>Saumon Grillé aux Câpres</h3>
-<p>Ajoutez des câpres sur un saumon fraîchement grillé pour une explosion de saveurs.</p>
-</div>
-</section>
-<section class="commande-section">
-<h2>Passer une Commande</h2>
-<p>Commandez facilement via WhatsApp et recevez vos produits directement chez vous !</p>
-<button onclick="window.location.href='https://wa.me/212668713678'">Commander via WhatsApp</button>
-</section>
-<footer>
-<p>© 2024 Taaouniyat Alkobar Khat Azakan. Tous droits réservés.</p>
-<div id="contact-section" style="color: white; text-align: center; margin-top: 20px;">
-<h3>Contactez-Nous</h3>
-<p>Email : mohammedraida@hotmail.com</p>
-<p>Téléphone : +212 668 713678</p>
-</div>
-</footer>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="#">Taaouniyat Alkobar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#catalog">Produits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#recettes">Recettes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contactez-Nous</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section d-flex align-items-center">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content" data-aos="fade-up">
+      <h1>Taaouniyat Alkobar Khat Azakan</h1>
+      <p>Produits de câpres et des recettes uniques</p>
+      <a href="#catalog" class="btn btn-primary btn-lg">Découvrez Nos Produits</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="catalog">
+    <div class="container">
+      <h2 class="text-center" data-aos="fade-up">Nos Produits</h2>
+      <div class="row mt-5">
+        <!-- Product 1 -->
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <img src="product1.jpg" class="card-img-top" alt="Câpres Marinées">
+            <div class="card-body">
+              <h5 class="card-title">Câpres Marinées</h5>
+              <p class="card-text">Des câpres marinées pour un goût authentique.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <img src="product2.jpg" class="card-img-top" alt="Câpres Séchées">
+            <div class="card-body">
+              <h5 class="card-title">Câpres Séchées</h5>
+              <p class="card-text">Des câpres séchées idéales pour vos plats.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100">
+            <img src="product3.jpg" class="card-img-top" alt="Câpres en Pot">
+            <div class="card-body">
+              <h5 class="card-title">Câpres en Pot</h5>
+              <p class="card-text">Conservées pour une longue fraîcheur.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add more products as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Recipes Section -->
+  <section id="recettes" class="bg-light">
+    <div class="container">
+      <h2 class="text-center" data-aos="fade-up">Recettes Délicieuses</h2>
+      <div class="row mt-5">
+        <!-- Recipe 1 -->
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100">
+            <img src="recipe1.jpg" class="card-img-top" alt="Salade Méditerranéenne">
+            <div class="card-body">
+              <h5 class="card-title">Salade Méditerranéenne aux Câpres</h5>
+              <p class="card-text">Une salade fraîche avec une touche de câpres pour sublimer le goût.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Recipe 2 -->
+        <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100">
+            <img src="recipe2.jpg" class="card-img-top" alt="Poulet aux Câpres">
+            <div class="card-body">
+              <h5 class="card-title">Poulet aux Câpres</h5>
+              <p class="card-text">Un plat délicieux de poulet rehaussé par le goût unique des câpres.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Add more recipes as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 data-aos="fade-up">Passer une Commande</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Commandez via WhatsApp et recevez vos produits directement chez vous !</p>
+      <a href="https://wa.me/212668713678" class="btn btn-light btn-lg" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-whatsapp"></i> Commander via WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="container text-center">
+      <h2 data-aos="fade-up">Inscrivez-vous à notre newsletter</h2>
+      <p data-aos="fade-up" data-aos-delay="100">Recevez les dernières nouvelles et mises à jour directement dans votre boîte de réception.</p>
+      <form class="mt-4" data-aos="fade-up" data-aos-delay="200">
+        <input type="email" class="form-control" placeholder="Entrez votre email" required>
+        <button type="submit" class="btn btn-primary btn-lg mt-3">S'inscrire</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container text-center">
+      <h3>Contactez-Nous</h3>
+      <p>Email : <a href="mailto:mohammedraida@hotmail.com">mohammedraida@hotmail.com</a></p>
+      <p>Téléphone : <a href="tel:+212668713678">+212 668 713678</a></p>
+      <div class="social-icons mt-3">
+        <a href="#" class="mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="mx-2"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="mx-2"><i class="fab fa-twitter"></i></a>
+        <!-- Add more social icons as needed -->
+      </div>
+      <p class="mt-4">© 2023 Taaouniyat Alkobar Khat Azakan. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS JS for Animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+    });
+  </script>
+
 </body>
 </html>
