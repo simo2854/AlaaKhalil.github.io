@@ -30,7 +30,7 @@ header .container {
   padding: 1rem 0;
 }
 .logo img {
-  max-height: 50px;
+  max-height: 80px;
 }
 .nav-links {
   list-style: none;
@@ -48,8 +48,8 @@ header .container {
   color: #D81B60; /* kräftiger Pink-Ton */
 }
 .header-icons img {
-  width: 24px;
-  margin-left: 1rem;
+  width: 32px;
+  margin-left: 1.5rem;
 }
 
 /* 4) HERO / SLIDER */
