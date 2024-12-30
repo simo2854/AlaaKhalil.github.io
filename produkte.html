@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Votre boutique K-Beauty – Produits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts (exemple) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" 
+    rel="stylesheet"
+  >
+
+  <!-- Court exemple de CSS incorporé -->
+  <style>
+    /* Réinitialisation de base */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+    }
+    header .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo img {
+      max-height: 50px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+      color: #333;
+    }
+    nav ul li a:hover {
+      color: #D81B60;
+    }
+    .header-icons img {
+      width: 24px;
+      margin-left: 1rem;
+    }
+
+    /* Section Produits */
+    .products {
+      width: 90%;
+      max-width: 1200px;
+      margin: 2rem auto;
+    }
+    .products h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+    .product-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+    .product-card:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .product-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.2rem;
+    }
+    .price {
+      color: #D81B60;
+      font-weight: 600;
+      margin: 0.5rem 0;
+    }
+    .product-card p {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #D81B60;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #ad164a;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      margin-top: 3rem;
+      padding: 2rem 0;
+    }
+    .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .footer-col {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-col h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .footer-col ul li a {
+      color: #ccc;
+      transition: color 0.3s;
+    }
+    .footer-col ul li a:hover {
+      color: #fff;
+    }
+    .footer-col p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #ccc;
+    }
+    .social-icons a {
+      color: #ccc;
+      margin-right: 1rem;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .social-icons a:hover {
+      color: #fff;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <img src="https://via.placeholder.com/140x50/FFC0CB/000000?text=KBeauty+Logo" alt="Logo">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="produkte.html" class="active">Produits</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="kontakt.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <a href="#"><img src="https://via.placeholder.com/30?text=🔍" alt="Recherche"></a>
+        <a href="#"><img src="https://via.placeholder.com/30?text=🛒" alt="Panier"></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION PRODUITS -->
+  <section class="products">
+    <h1>Nos produits</h1>
+    <div class="product-grid">
+      <!-- Produit A -->
+       <div class="product-card">
+        <img src="images\anuaHeartLeafToner.jpeg" alt="Produkt 1">
+        <h3>Heartleaf 77% Soothing Toner</h3>
+        <p class="price">19,99 €</p>
+        <p><p> Une lotion tonique apaisante avec 77% d'extrait de Houttuynia Cordata, idéale pour hydrater et protéger la peau.</p>
+        .</p>
+        <a href="produkte.html" class="btn">Ajouter au panier</a>
+      </div>
+      <div class="product-card">
+        <img src="images\snailCosrx.jpeg" alt="Produkt 2">
+        <h3>Advanced Snail 96 Mucin Power Essence</h3>
+        <p class="price">24,99 €</p>
+        <p>Enrichie en mucine d'escargot, elle hydrate intensément et améliore la texture de la peau.</p>
+        <a href="produkte.html" class="btn">Ajouter au panier</a>
+      </div>
+      <div class="product-card">
+        <img src="images\overnightMask.jpeg" alt="Produkt 3">
+        <h3>Ultimate Nourishing Rice Overnight Mask</h3>
+        <p class="price">29,99 €</p>
+        <p>Enrichie avec plus de 65% d'extrait de riz, elle nourrit intensément et illumine la peau pendant la nuit.</p>
+        <a href="produkte.html" class="btn">Ajouter au panier</a>
+      </div>
+    </div>
+  </section>
+<footer>
+  <!-- Conteneur du pied de page avec 3 colonnes -->
+  <div class="footer-container">
+    <!-- Colonne 1 : Contact -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Adresse :64000 Avenue Kennedy, Safi, Maroc</p>
+      <p>Téléphone : +212 </p>
+      <p>Email : info@k-beauty.ma</p>
+    </div>
+    <!-- Colonne 2 : Liens importants -->
+    <div class="footer-col">
+      <h4>Liens importants</h4>
+      <ul>
+        <li><a href="#">Livraison & expédition</a></li>
+        <li><a href="#">Retours & échanges</a></li>
+        <li><a href="#">Conditions générales</a></li>
+        <li><a href="#">Confidentialité</a></li>
+      </ul>
+    </div>
+    <!-- Colonne 3 : Suivez-nous -->
+    <div class="footer-col">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <p>&copy; 2024 Votre boutique K-Beauty. Tous droits réservés.</p>
+  </div>
+</footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>
