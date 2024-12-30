@@ -31,25 +31,17 @@ header .container {
 }
 /* LOGO */
 .logo img {
-  max-height: 175px; /* Erhöhen der Höhe für bessere Sichtbarkeit */
-  width: auto; /* Breite bleibt proportional */
+  max-height: 175px; /* Standardhöhe Desktop */
+  width: auto;
 }
 
 /* HEADER-ICONS */
 .header-icons img {
-  width: 24px;
- margin-left: 1rem;
+  width: 24px;        /* Einheitlich 24px für Desktop und Mobil */
+  margin-left: 1rem;
 }
 
-/* HEADER-CONTAINER-AUSRICHTUNG */
-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 0; /* Gleichmäßiger Abstand */
-}
-
-
+/* NAVIGATIONSLINKS */
 .nav-links {
   list-style: none;
   display: flex;
@@ -66,46 +58,32 @@ header .container {
   color: #D81B60; /* kräftiger Pink-Ton */
 }
 
-
 /* 4) HERO / SLIDER */
 .hero {
   position: relative;
   overflow: hidden;
 }
-
-/* Das "slider" kann recht minimal bleiben, 
-   denn wir stylen .slide genauer (s.u.). */
 .slider {
   position: relative;
   width: 100%;
-  height: auto; 
-  /* Wir überlassen .slide selbst die Größenkontrolle */
+  height: auto;
 }
-
-/* Jede .slide bekommt eine max-Höhe (oder feste Höhe) 
-   und "object-fit: cover" sorgt für schönen Zuschnitt. */
 .slide {
   display: none;
-  position: relative;
   width: 100%;
-  max-height: 750px;    /* <-- Anpassen nach Wunsch (z.B. 400px/500px) */
+  max-height: 750px;
   overflow: hidden;
+  position: relative;
 }
-
-/* Nur die aktive Slide wird angezeigt. */
 .slide.active {
   display: block;
 }
-
-/* Das Bild füllt .slide vollständig aus, 
-   behält aber sein Seitenverhältnis (cover). */
 .slide img {
   width: 100%;
-  height: 100%; 
-  object-fit: cover;  
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
-
 /* SLIDE-TEXT-BOX */
 .slide-text {
   position: absolute;
@@ -113,25 +91,19 @@ header .container {
   left: 10%;
   transform: translateY(-50%);
   color: #333;
-
-  /* Feste/gleiche Maße: */
-  width: 350px;     /* Einheitliche Breite */
-  min-height: 220px; /* oder height: 220px, falls du sie GENAU gleich hoch willst */
-
+  width: 350px;
+  min-height: 220px;
   background: rgba(255, 255, 255, 0.75);
-  padding: 1.5rem;  /* etwas mehr Abstand innen */
+  padding: 1.5rem;
   border-radius: 5px;
 }
-
 .slide-text h1 {
   font-size: 1.8rem;
   margin-bottom: 0.8rem;
 }
-
 .slide-text p {
   margin-bottom: 1.2rem;
 }
-
 .cta {
   background-color: #D81B60;
   color: #fff;
@@ -143,12 +115,10 @@ header .container {
   transition: background-color 0.3s;
   border-radius: 4px;
 }
-
 .cta:hover {
   background-color: #ad164a;
 }
-
-/* SLIDER-PFEILE */
+/* ARROWS */
 .slider-arrows {
   position: absolute;
   width: 100%;
@@ -217,11 +187,14 @@ header .container {
   text-decoration: none;
   font-weight: 500;
   transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
 }
 .btn:hover {
   background-color: #ad164a;
 }
-/* Abschnitt "Commander par WhatsApp" */
+
+/* ABSCHNITT: WHATSAPP ORDER */
 .whatsapp-order {
   text-align: center;
   margin: 2rem auto;
@@ -236,14 +209,11 @@ header .container {
   font-size: 1rem;
   line-height: 1.4;
 }
-
-/* Die Schaltfläche selbst */
 .whatsapp-btn {
-  display: inline-flex; /* damit Icon + Text schön nebeneinander sind */
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-
-  background-color: #25D366;  /* WhatsApp-Farbe */
+  background-color: #25D366;
   color: #fff;
   padding: 0.8rem 1.2rem;
   border-radius: 4px;
@@ -258,7 +228,6 @@ header .container {
   width: 24px;
   height: 24px;
 }
-
 
 /* 6) ABOUT-US */
 .about-us {
@@ -430,14 +399,22 @@ footer {
 }
 
 /* 11) RESPONSIVENESS */
+
+/* --- Logo & Icons auf Mobil verkleinern --- */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Hier könntest du ein Burger-Menü implementieren */
+  /* Logo verkleinern */
+  .logo img {
+    max-height: 80px;  /* Statt 175px */
   }
-  header .container {
-    justify-content: space-between;
+
+  /* Navigation NICHT ausblenden */
+  /* Du kannst stattdessen das Menu z.B. umbrechen */
+  .nav-links {
+    flex-wrap: wrap; 
   }
 }
+
+/* Ab 992px: 2-spaltiges Layout z.B. bei About, Footer etc. */
 @media (max-width: 992px) {
   .about-inner {
     flex-direction: column;
