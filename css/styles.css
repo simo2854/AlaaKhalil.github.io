@@ -427,3 +427,36 @@ footer {
     flex-direction: column;
   }
 }
+/* --- Logo & Navigation für Mobilgeräte --- */
+@media (max-width: 768px) {
+  /* Logo verkleinern */
+  .logo img {
+    max-height: 50px; /* Kleinere Höhe für Mobilansicht */
+    width: auto;      /* Beibehaltung der Proportionen */
+  }
+
+  /* Navigation sichtbar machen */
+  .nav-links {
+    flex-wrap: wrap; /* Umbruch der Navigation bei Platzmangel */
+    justify-content: center; /* Zentrierte Links */
+    gap: 1rem; /* Mehr Abstand zwischen den Links */
+  }
+
+  /* Navigation auf kleinen Bildschirmen */
+  .nav-links li {
+    flex: 1; /* Gleiche Breite für jeden Link */
+    text-align: center; /* Zentrierte Links */
+  }
+
+  /* Header-Padding reduzieren */
+  header .container {
+    flex-wrap: wrap; /* Inhalte umbrechen, wenn nötig */
+    justify-content: space-between;
+  }
+
+  .header-icons img {
+    width: 20px; /* Verkleinerung der Icons */
+    height: 20px;
+    margin-left: 0.5rem; /* Weniger Abstand */
+  }
+}
