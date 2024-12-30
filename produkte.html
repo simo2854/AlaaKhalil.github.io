@@ -15,7 +15,7 @@
 
   <!-- Court exemple de CSS incorporé -->
   <style>
-    /* Réinitialisation de base */
+    /* --- RESET DE BASE --- */
     * {
       margin: 0; 
       padding: 0; 
@@ -31,7 +31,7 @@
       color: inherit;
     }
 
-    /* Header */
+    /* --- HEADER --- */
     header {
       background-color: #fff;
       border-bottom: 1px solid #eee;
@@ -47,8 +47,18 @@
     }
     .logo img {
       max-height: 175px;
-       width: auto; /* Breite bleibt proportional */
+      width: auto; /* Breite bleibt proportional */
     }
+    
+@media (max-width: 768px) {
+  .header-icons img {
+    width: 32px; /* Kleinere Icons auf mobilen Geräten */
+    height: 32px;
+  }
+  .logo img {
+    max-height: 80px; /* Kleineres Logo für mobile Ansicht */
+  }
+}
     nav ul {
       list-style: none;
       display: flex;
@@ -67,16 +77,7 @@
       margin-left: 1rem;
     }
 
-@media (max-width: 768px) {
-  .header-icons img {
-    width: 32px; /* Kleinere Icons auf mobilen Geräten */
-    height: 32px;
-  }
-  .logo img {
-    max-height: 80px; /* Kleineres Logo für mobile Ansicht */
-  }
-}
-    /* Section Produits */
+    /* --- SECTION PRODUITS --- */
     .products {
       width: 90%;
       max-width: 1200px;
@@ -117,10 +118,6 @@
       font-weight: 600;
       margin: 0.5rem 0;
     }
-    .product-card p {
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
     .btn {
       display: inline-block;
       background-color: #D81B60;
@@ -129,21 +126,36 @@
       border-radius: 4px;
       font-weight: 500;
       transition: background-color 0.3s;
+      border: none;
+      cursor: pointer;
     }
     .btn:hover {
       background-color: #ad164a;
     }
 
-    /* Sidebar Panier */
+    /* --- OVERLAY FÜR SIDEBAR --- */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none; /* per default ausgeblendet */
+    }
+    .overlay.show {
+      display: block;
+    }
+
+    /* --- SIDEBAR-PANIER (CART) --- */
     .cart-sidebar {
       position: fixed;
-      top: 0;
-      right: 0;
-      width: 30%;
-      max-width: 400px;
+      top: 0; right: 0;
+      width: 350px;
+      max-width: 90%;
       height: 100%;
       background: #fff;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      box-shadow: -2px 0 5px rgba(0,0,0,0.15);
       padding: 1rem;
       overflow-y: auto;
       transform: translateX(100%);
@@ -155,41 +167,82 @@
     }
     .cart-sidebar h2 {
       text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
     }
-    .cart-sidebar .cart-content {
+    .cart-content {
       margin-top: 1rem;
     }
-    .cart-sidebar .cart-total {
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      gap: 0.5rem;
+    }
+    .cart-item img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .cart-item-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .cart-item-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .cart-item-price {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .cart-item-quantity {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.3rem;
+    }
+    .quantity-btn {
+      width: 24px; 
+      height: 24px;
+      border: 1px solid #ccc;
+      background: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 22px;
+      text-align: center;
+      color: #333;
+    }
+    .quantity-btn:hover {
+      background-color: #eee;
+    }
+    .cart-total {
       font-weight: bold;
-      margin-top: 1rem;
+      margin: 1rem 0;
+      text-align: right;
+      font-size: 1rem;
     }
-    .cart-sidebar button {
+    .checkout-btn {
       width: 100%;
-      padding: 0.6rem;
+      padding: 0.8rem;
       background-color: #D81B60;
       color: #fff;
       border: none;
       border-radius: 4px;
       font-size: 1rem;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .checkout-btn:hover {
+      background-color: #ad164a;
     }
 
-    /* Overlay */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-      display: none;
-    }
-    .overlay.show {
-      display: block;
-    }
-
-    /* Footer */
+    /* --- FOOTER --- */
     footer {
       background-color: #333;
       color: #fff;
@@ -264,8 +317,10 @@
         </ul>
       </nav>
       <div class="header-icons">
-        <a href="#"><img src="images\recherche.png" alt="Recherche"></a>
-         <a href="#" id="cart-toggle"><img src="https://via.placeholder.com/30?text=🛒" alt="Panier"></a>
+        <!-- Recherche Icon -->
+        <a href="#"><img src="images\recherche.png" alt="Recherch"></a>
+        <!-- Panier Icon (öffnet Sidebar) -->
+        <a href="#" id="cart-toggle"><img src="images\korb.jpg" alt="Panier"></a>
       </div>
     </div>
   </header>
@@ -274,50 +329,66 @@
   <section class="products">
     <h1>Nos produits</h1>
     <div class="product-grid">
-      <!-- Produit A -->
+      <!-- PRODUIT A -->
       <div class="product-card">
         <img src="images/anuaHeartLeafToner.jpeg" alt="Produkt 1">
         <h3>Heartleaf 77% Soothing Toner</h3>
         <p class="price">19.99 €</p>
-        <button class="btn add-to-cart" data-name="Heartleaf 77% Soothing Toner" data-price="19.99">Ajouter au panier</button>
+        <!-- data-image hinzufügen, damit wir das Bild später im Warenkorb haben -->
+        <button 
+          class="btn add-to-cart" 
+          data-name="Heartleaf 77% Soothing Toner" 
+          data-price="19.99"
+          data-image="images/anuaHeartLeafToner.jpeg"
+        >Ajouter au panier</button>
       </div>
+      <!-- PRODUIT B -->
       <div class="product-card">
         <img src="images/snailCosrx.jpeg" alt="Produkt 2">
         <h3>Advanced Snail 96 Mucin Power Essence</h3>
         <p class="price">24.99 €</p>
-        <button class="btn add-to-cart" data-name="Advanced Snail 96 Mucin Power Essence" data-price="24.99">Ajouter au panier</button>
+        <button 
+          class="btn add-to-cart" 
+          data-name="Advanced Snail 96 Mucin Power Essence" 
+          data-price="24.99"
+          data-image="images/snailCosrx.jpeg"
+        >Ajouter au panier</button>
       </div>
+      <!-- PRODUIT C -->
       <div class="product-card">
         <img src="images/overnightMask.jpeg" alt="Produkt 3">
         <h3>Ultimate Nourishing Rice Overnight Mask</h3>
         <p class="price">29.99 €</p>
-        <button class="btn add-to-cart" data-name="Ultimate Nourishing Rice Overnight Mask" data-price="29.99">Ajouter au panier</button>
+        <button 
+          class="btn add-to-cart" 
+          data-name="Ultimate Nourishing Rice Overnight Mask" 
+          data-price="29.99"
+          data-image="images/overnightMask.jpeg"
+        >Ajouter au panier</button>
       </div>
     </div>
   </section>
 
-  <!-- Overlay -->
+  <!-- OVERLAY -->
   <div class="overlay" id="overlay"></div>
 
-  <!-- Sidebar Panier -->
+  <!-- SIDEBAR PANIER -->
   <div class="cart-sidebar" id="cart-sidebar">
     <h2>Mon panier</h2>
     <div class="cart-content" id="cart-content">Votre panier est vide.</div>
     <p class="cart-total" id="cart-total">Total : 0.00 €</p>
-    <button id="checkout-button">Commander maintenant</button>
+    <button class="checkout-btn" id="checkout-button">Commander maintenant</button>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    <!-- Conteneur du pied de page avec 3 colonnes -->
     <div class="footer-container">
-      <!-- Colonne 1 : Contact -->
       <div class="footer-col">
         <h4>Contact</h4>
         <p>Adresse :64000 Avenue Kennedy, Safi, Maroc</p>
         <p>Téléphone : +212 </p>
         <p>Email : info@k-beauty.ma</p>
       </div>
-      <!-- Colonne 2 : Liens importants -->
       <div class="footer-col">
         <h4>Liens importants</h4>
         <ul>
@@ -327,7 +398,6 @@
           <li><a href="#">Confidentialité</a></li>
         </ul>
       </div>
-      <!-- Colonne 3 : Suivez-nous -->
       <div class="footer-col">
         <h4>Suivez-nous</h4>
         <div class="social-icons">
@@ -337,28 +407,62 @@
         </div>
       </div>
     </div>
-
-    <!-- Copyright -->
     <div class="footer-bottom">
       <p>&copy; 2024 Votre boutique K-Beauty. Tous droits réservés.</p>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
     let cart = [];
 
-    // Funktion: Artikel zum Warenkorb hinzufügen
-    function addToCart(name, price) {
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity++;
+    // Beim Klick auf "Ajouter au panier"
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const name = btn.getAttribute("data-name");
+        const price = btn.getAttribute("data-price");
+        const image = btn.getAttribute("data-image");
+        addToCart(name, price, image);
+      });
+    });
+
+    // Cart toggle Button
+    const cartToggle = document.getElementById("cart-toggle");
+    const cartSidebar = document.getElementById("cart-sidebar");
+    const overlay = document.getElementById("overlay");
+
+    cartToggle.addEventListener("click", () => {
+      cartSidebar.classList.toggle("open");
+      overlay.classList.toggle("show");
+    });
+
+    // Overlay klicken -> Sidebar schließen
+    overlay.addEventListener("click", () => {
+      cartSidebar.classList.remove("open");
+      overlay.classList.remove("show");
+    });
+
+    // Funktion: Artikel ins Cart-Array
+    function addToCart(name, price, image) {
+      // Prüfen, ob Artikel schon existiert
+      const item = cart.find(i => i.name === name);
+      if (item) {
+        item.quantity++;
       } else {
-        cart.push({ name, price: parseFloat(price), quantity: 1 });
+        cart.push({
+          name,
+          price: parseFloat(price),
+          image,
+          quantity: 1
+        });
       }
+      // neu rendern & Sidebar öffnen
       renderCart();
+      cartSidebar.classList.add("open");
+      overlay.classList.add("show");
     }
 
-    // Funktion: Warenkorb anzeigen
+    // Warenkorb rendern
     function renderCart() {
       const cartContent = document.getElementById("cart-content");
       const cartTotal = document.getElementById("cart-total");
@@ -369,59 +473,61 @@
         return;
       }
 
-      const cartItems = cart.map((item, index) => `
-        <div>
-          ${item.name} x${item.quantity} = ${(item.price * item.quantity).toFixed(2)} €
-          <button onclick="updateQuantity(${index}, 1)">+</button>
-          <button onclick="updateQuantity(${index}, -1)">-</button>
-        </div>
-      `).join("<br>");
+      let html = "";
+      let total = 0;
 
-      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
 
-      cartContent.innerHTML = cartItems;
+        html += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-details">
+              <span class="cart-item-title">${item.name}</span>
+              <span class="cart-item-price">${item.price.toFixed(2)} € / pièce</span>
+              <div class="cart-item-quantity">
+                <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                <span>${item.quantity}</span>
+                <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+              </div>
+            </div>
+            <div style="margin-left:auto; font-weight:bold;">
+              ${(subtotal).toFixed(2)} €
+            </div>
+          </div>
+        `;
+      });
+
+      cartContent.innerHTML = html;
       cartTotal.textContent = `Total : ${total.toFixed(2)} €`;
     }
 
-    function updateQuantity(index, change) {
-      cart[index].quantity += change;
+    function updateQuantity(index, delta) {
+      cart[index].quantity += delta;
       if (cart[index].quantity <= 0) {
         cart.splice(index, 1);
       }
       renderCart();
     }
 
-    function sendOrderToWhatsApp() {
-      const orderDetails = cart.map(item => `${item.name} x${item.quantity} = ${(item.price * item.quantity).toFixed(2)} €`).join("\n");
-      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-      const whatsappMessage = `Bonjour, voici ma commande:\n\n${orderDetails}\n\nTotal : ${total.toFixed(2)} €`;
-      window.open(`https://wa.me/4917672394271?text=${encodeURIComponent(whatsappMessage)}`);
-    }
+    // Klick auf "Commander maintenant" -> WhatsApp
+    document.getElementById("checkout-button").addEventListener("click", () => {
+      if (cart.length === 0) return;
 
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-      button.addEventListener("click", () => {
-        const name = button.getAttribute("data-name");
-        const price = button.getAttribute("data-price");
-        addToCart(name, price);
+      let message = "Bonjour, je souhaite commander :\n\n";
+      let total = 0;
+      cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        message += `- ${item.name} x${item.quantity} = ${subtotal.toFixed(2)} €\n`;
       });
-    });
+      message += `\nTotal : ${total.toFixed(2)} €\n\nMerci !`;
 
-    document.getElementById("cart-toggle").addEventListener("click", () => {
-      const cartSidebar = document.getElementById("cart-sidebar");
-      const overlay = document.getElementById("overlay");
-      cartSidebar.classList.toggle("open");
-      overlay.classList.toggle("show");
+      const phoneNumber = "4917672394271"; // Deine WhatsApp-Nummer ohne "+"
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
     });
-
-    document.getElementById("overlay").addEventListener("click", () => {
-      const cartSidebar = document.getElementById("cart-sidebar");
-      const overlay = document.getElementById("overlay");
-      cartSidebar.classList.remove("open");
-      overlay.classList.remove("show");
-    });
-
-    document.getElementById("checkout-button").addEventListener("click", sendOrderToWhatsApp);
   </script>
-
 </body>
 </html>
