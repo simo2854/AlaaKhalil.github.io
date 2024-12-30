@@ -37,16 +37,14 @@
       border-bottom: 1px solid #eee;
     }
     header .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 0;
+    display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0; /* Gleichmäßiger Abstand */
     }
     .logo img {
-      max-height: 50px;
+ max-height: 100px; /* Erhöhen der Höhe für bessere Sichtbarkeit */
+  width: auto; /* Breite bleibt proportional */
     }
     nav ul {
       list-style: none;
@@ -62,10 +60,22 @@
       color: #D81B60;
     }
     .header-icons img {
-      width: 24px;
-      margin-left: 1rem;
+   width: 36px; /* Größere Icons */
+  height: 36px;
+  margin-left: 1rem; /* Abstand zwischen den Icons */
+  display: inline-block; /* Sicherstellen, dass sie in einer Zeile bleiben */
+  object-fit: contain; /* Proportional anpassen */
     }
 
+@media (max-width: 768px) {
+  .header-icons img {
+    width: 32px; /* Kleinere Icons auf mobilen Geräten */
+    height: 32px;
+  }
+  .logo img {
+    max-height: 80px; /* Kleineres Logo für mobile Ansicht */
+  }
+}
     /* --- SECTION PRODUITS --- */
     .products {
       width: 90%;
