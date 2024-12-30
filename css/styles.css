@@ -29,9 +29,39 @@ header .container {
   justify-content: space-between;
   padding: 1rem 0;
 }
+/* LOGO */
 .logo img {
-  max-height: 80px;
+  max-height: 100px; /* Erhöhen der Höhe für bessere Sichtbarkeit */
+  width: auto; /* Breite bleibt proportional */
 }
+
+/* HEADER-ICONS */
+.header-icons img {
+  width: 36px; /* Größere Icons */
+  height: 36px;
+  margin-left: 1rem; /* Abstand zwischen den Icons */
+  display: inline-block; /* Sicherstellen, dass sie in einer Zeile bleiben */
+  object-fit: contain; /* Proportional anpassen */
+}
+
+/* HEADER-CONTAINER-AUSRICHTUNG */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0; /* Gleichmäßiger Abstand */
+}
+
+@media (max-width: 768px) {
+  .header-icons img {
+    width: 32px; /* Kleinere Icons auf mobilen Geräten */
+    height: 32px;
+  }
+  .logo img {
+    max-height: 80px; /* Kleineres Logo für mobile Ansicht */
+  }
+}
+
 .nav-links {
   list-style: none;
   display: flex;
