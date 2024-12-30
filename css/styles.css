@@ -65,10 +65,7 @@ header .container {
 .nav-links li a.active {
   color: #D81B60; /* kräftiger Pink-Ton */
 }
-.header-icons img {
-  width: 32px;
-  margin-left: 1.5rem;
-}
+
 
 /* 4) HERO / SLIDER */
 .hero {
