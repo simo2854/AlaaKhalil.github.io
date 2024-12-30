@@ -533,3 +533,9 @@ header .container {
     width: auto; /* Proportionen beibehalten */
   }
 }
+@media (max-width: 480px) {
+    .nav-links {
+        flex-direction: column; /* Links untereinander */
+        gap: 0.5rem; /* Weniger Abstand */
+    }
+}
