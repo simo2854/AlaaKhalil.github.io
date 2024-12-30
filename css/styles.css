@@ -31,7 +31,7 @@ header .container {
 }
 /* LOGO */
 .logo img {
-  max-height: 100px; /* Erhöhen der Höhe für bessere Sichtbarkeit */
+  max-height: 175px; /* Erhöhen der Höhe für bessere Sichtbarkeit */
   width: auto; /* Breite bleibt proportional */
 }
 
